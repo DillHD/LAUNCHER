@@ -1,0 +1,14 @@
+C:\Users\Dylan\source\repos\MEGAFIELDLauncher\MEGAFIELDLauncher\bin\Release\MEGAFIELDLauncher.exe.config
+C:\Users\Dylan\source\repos\MEGAFIELDLauncher\MEGAFIELDLauncher\bin\Release\MEGAFIELDLauncher.exe
+C:\Users\Dylan\source\repos\MEGAFIELDLauncher\MEGAFIELDLauncher\bin\Release\MEGAFIELDLauncher.pdb
+C:\Users\Dylan\source\repos\MEGAFIELDLauncher\MEGAFIELDLauncher\obj\Release\MainWindow.g.cs
+C:\Users\Dylan\source\repos\MEGAFIELDLauncher\MEGAFIELDLauncher\obj\Release\App.g.cs
+C:\Users\Dylan\source\repos\MEGAFIELDLauncher\MEGAFIELDLauncher\obj\Release\MEGAFIELDLauncher_MarkupCompile.cache
+C:\Users\Dylan\source\repos\MEGAFIELDLauncher\MEGAFIELDLauncher\obj\Release\MEGAFIELDLauncher_MarkupCompile.lref
+C:\Users\Dylan\source\repos\MEGAFIELDLauncher\MEGAFIELDLauncher\obj\Release\MainWindow.baml
+C:\Users\Dylan\source\repos\MEGAFIELDLauncher\MEGAFIELDLauncher\obj\Release\MEGAFIELDLauncher.g.resources
+C:\Users\Dylan\source\repos\MEGAFIELDLauncher\MEGAFIELDLauncher\obj\Release\MEGAFIELDLauncher.Properties.Resources.resources
+C:\Users\Dylan\source\repos\MEGAFIELDLauncher\MEGAFIELDLauncher\obj\Release\MEGAFIELDLauncher.csproj.GenerateResource.cache
+C:\Users\Dylan\source\repos\MEGAFIELDLauncher\MEGAFIELDLauncher\obj\Release\MEGAFIELDLauncher.csproj.CoreCompileInputs.cache
+C:\Users\Dylan\source\repos\MEGAFIELDLauncher\MEGAFIELDLauncher\obj\Release\MEGAFIELDLauncher.exe
+C:\Users\Dylan\source\repos\MEGAFIELDLauncher\MEGAFIELDLauncher\obj\Release\MEGAFIELDLauncher.pdb
