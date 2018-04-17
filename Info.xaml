@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="Info" Height="310" Width="553" HorizontalAlignment="Center" VerticalAlignment="Center" ResizeMode="NoResize">
+        Title="Info" Height="310" Width="553" HorizontalAlignment="Center" VerticalAlignment="Center" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid Background="#FF292A3C" Margin="0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -13,7 +13,7 @@
         </Grid.ColumnDefinitions>
         <Canvas HorizontalAlignment="Left" Height="71" Margin="183,148,0,0" VerticalAlignment="Top" Width="191">
             <TextBlock HorizontalAlignment="Center" Margin="0" TextWrapping="Wrap" Text="Created by. Dylan Johnson" VerticalAlignment="Center" Width="171" Foreground="#FF6A6A6A" FontSize="14" Canvas.Left="10" Canvas.Top="10"/>
-            <TextBlock Canvas.Left="71" TextWrapping="Wrap" Text="GitHub" Canvas.Top="45" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF6A6A6A"/>
+            <Button Content="GitHub" HorizontalAlignment="Left" VerticalAlignment="Top" Width="74" Canvas.Left="55" Canvas.Top="41" Background="{x:Null}" BorderThickness="0" Foreground="#FF6A6A6A" Click="Button_Click_2"/>
         </Canvas>
         <TextBlock HorizontalAlignment="Left" Margin="163,42,0,0" TextWrapping="Wrap" Text="Launcher" VerticalAlignment="Top" Height="68" Width="217" Foreground="#FF6A6A6A" FontSize="48"/>
         <Button Content="Check for updates" HorizontalAlignment="Left" Margin="421,244,0,0" VerticalAlignment="Top" Width="108" Background="{x:Null}" Foreground="#FF6A6A6A" BorderThickness="0" Click="Button_Click"/>

@@ -7,38 +7,104 @@ using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Net;
 using System.Windows;
-
+using System.Net.NetworkInformation;
+using System.IO;
+using System.IO.Compression;
 
 namespace WpfApp1
 
 {
-    
-    class Launcher
+
+    public static class Launcher
     {
+        private static ZipArchive ZipArchive;
+
         public static void PlayGame()
         {
-            Launcher.downloadFile();
-        }
-        public static void downloadFile()
-        {
-            string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
             var enviromentPath = System.AppDomain.CurrentDomain.BaseDirectory;
-            var downloadPath = enviromentPath + "\\Bin";
+            //iS THE GAME INSTALLED? IF SO CHECK FOR UPDATES
+            if (File.Exists(enviromentPath + "\\Bin\\MEGAFIELD.exe"))
+            {
+                var LatestLauncherVersionURL = "http://megafieldgame.x10.mx/game/Win64/bin/GameVersion.txt";
+                var LatestLauncherVersion = (new WebClient()).DownloadString(LatestLauncherVersionURL);
 
-            // Change the url by the value you want (a textbox or something else)
-            string url = "http://megafieldgame.x10.mx/game/test/";
-            // Get filename from URL
+                string v1 = LatestLauncherVersion;
+                string v2 = System.IO.File.ReadAllText(enviromentPath + "//bin//gamevers.txt");
+
+                var version1 = new Version(v1);
+                var version2 = new Version(v2);
+
+                var result = version1.CompareTo(version2);
+                if (result > 0)
+                    updateGame();
+                else if (result < 0)
+                    updateGame();
+                else
+                    Process.Start("//bin//MEGAFIELD.exe");
+
+                return;
+            }
+            else
+            {
+                installGame();
+            }
+        }
+               public static void installGame()
+        {
+            var enviromentPath = System.AppDomain.CurrentDomain.BaseDirectory;
+            var downloadPath = enviromentPath + "\\temp";
+            var extractPath = enviromentPath;
+            string url = "http://megafieldgame.x10.mx/game/Win64/Win64.zip";
             string filename = getFilename(url);
 
             using (var client = new WebClient())
             {
                 client.DownloadFile(url, downloadPath + "/" + filename);
+
             }
 
-            MessageBox.Show("Download ready");
+            if (Directory.Exists(enviromentPath + "\\Bin"))
+            {
+                Directory.Delete(enviromentPath + "\\Bin", false);
+                ZipFile.ExtractToDirectory(downloadPath + "\\Win64.zip", extractPath);
+            }
+            else
+            {
+
+                ZipFile.ExtractToDirectory(downloadPath + "\\Win64.zip", extractPath);
+            }
+        }
+        //IF AN UPDAATE IS AAVAILBLE THIS WILL EXECUTE
+        public static void updateGame()
+        {
+            var enviromentPath = System.AppDomain.CurrentDomain.BaseDirectory;
+            var downloadPath = enviromentPath + "\\temp";
+            var extractPath = enviromentPath;
+            string url = "http://megafieldgame.x10.mx/game/Win64/Win64.zip";
+            string filename = getFilename(url);
+
+            using (var client = new WebClient())
+            {
+                client.DownloadFile(url, downloadPath + "/" + filename);
+
+            }
+
+            if (Directory.Exists(enviromentPath + "\\Bin\\MEGAFIELD\\Content\\Paks")){
+                Directory.Delete(enviromentPath + "\\Bin\\MEGAFIELD\\Content\\Paks", false);
+                ZipFile.ExtractToDirectory(downloadPath + "\\Win64.zip", extractPath);
+            }
+            else
+            {
+                
+                ZipFile.ExtractToDirectory(downloadPath + "\\Win64.zip", extractPath);
+            }
+            
             
         }
-        public static void updateLauncher()
+       
+
+            //IF A LAUNCHER UPDATE IS AVAIALBLE THIS WILL EXECUTE
+            public static void updateLauncher()
         {
             string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
             var enviromentPath = System.AppDomain.CurrentDomain.BaseDirectory;
@@ -58,14 +124,7 @@ namespace WpfApp1
 
         }
 
-        /// <summary>
-        /// Get the filename from a web url : 
-        /// 
-        /// www.google.com/image.png -> returns : image.png
-        /// 
-        /// </summary>
-        /// <param name="hreflink"></param>
-        /// <returns></returns>
+        
         private static string getFilename(string hreflink)
         {
             Uri uri = new Uri(hreflink);
@@ -82,7 +141,7 @@ namespace WpfApp1
             var LatestLauncherVersion = (new WebClient()).DownloadString(LatestLauncherVersionURL);
 
             string v1 = LatestLauncherVersion;
-            string v2 =  System.IO.File.ReadAllText("launcherversion.txt");
+            string v2 = System.IO.File.ReadAllText("launcherversion.txt");
 
             var version1 = new Version(v1);
             var version2 = new Version(v2);
@@ -97,15 +156,15 @@ namespace WpfApp1
             else
                 MessageBox.Show("Launcher is up to date!",
             "Launcher Update");
+            
             return;
 
         }
-    }
-    
         
-    
 
 
+    }
 }
+
 
     
