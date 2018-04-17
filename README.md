@@ -1,2 +1,8 @@
 # LAUNCHER
-TEST
+  update.zip must be structured like so
+  Bin/<gamename>/Content/Paks/update.pak
+  
+  
+  Win64.zip, all files must be in root
+  
+
